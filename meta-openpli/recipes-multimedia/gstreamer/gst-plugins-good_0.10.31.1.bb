@@ -22,6 +22,7 @@ SRC_URI += " \
 		file://0004-MatroskaDemux-Set-profile-field-in-cap-for-aac-audio.patch \
 		file://0005-FlvDemux-Set-profile-field-in-cap-for-aac-audio.patch \
 		${@base_contains('MACHINE_FEATURES', 'legacykernel', 'file://v4l-compile-fix-old-kernel.patch', '', d)} \
+		${@base_contains('BRAND_NAME', '4D', 'file://fix_v4l2_cid_hcenter_deprecated.patch', '', d)} \
 "
 
 inherit autotools pkgconfig gettext git-project

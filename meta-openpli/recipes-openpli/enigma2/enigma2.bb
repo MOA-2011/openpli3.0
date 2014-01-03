@@ -152,9 +152,7 @@ PKGV = "2.7+git${GITPKGV}"
 PR = "r49"
 
 ENIGMA2_BRANCH ?= "master"
-SRC_URI = "git://git.code.sf.net/p/openpli/enigma2;protocol=git;branch=${ENIGMA2_BRANCH} \
-		   ${@base_contains("BRAND_NAME", "4D", "file://avoid_compile_error_DTV_DVBT2_PLP_ID.patch", "", d)} \
-		   "
+SRC_URI = "${ENIGMA2_URI};protocol=git;branch=${ENIGMA2_BRANCH}" 
 
 S = "${WORKDIR}/git"
 

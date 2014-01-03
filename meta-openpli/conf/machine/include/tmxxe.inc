@@ -5,8 +5,6 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
 include conf/machine/include/autoload-filesystems.inc
 
 MACHINE_EXTRA_RRECOMMENDS = " \
-	splash-logo \
-	cfe-bootloader \
 	gst-plugin-dvbmediasink \
 	ntfs-3g \
 	"

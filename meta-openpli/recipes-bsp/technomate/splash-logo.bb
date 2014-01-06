@@ -1,39 +1,38 @@
-DESCRIPTION = "iqon and technomate splash image"
+DESCRIPTION = "TM bootlogo"
 SECTION = "base"
 PRIORITY = "required"
+MAINTAINER = "4D"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 LICENSE = "CLOSED"
 
-inherit deploy
-
+PV = "1.0"
 PR = "r0"
 
 S = "${WORKDIR}"
 
-SRC_URI = " \
-		   ${@base_contains("BRAND_NAME", "4D", "file://splash.bmp", "",d)} \
-		   ${@base_contains("BRAND_NAME", "IQON", "file://splash.bmp file://factory.bmp", "",d)} \
-		   ${@base_contains("BRAND_NAME", "EDISION", "file://optimuss.splash.bmp file://optimuss.factory.bmp", "",d)} \
-		   ${@base_contains("BRAND_NAME", "MEDIABOX", "file://mediabox.splash.bmp file://factory.bmp", "",d)} \
-		   "
+SRC_URI = "file://factory.bmp \
+		   file://splash.bmp \
+		   file://optimuss.splash.bmp \
+		   file://optimuss.factory.bmp \
+		   file://mediabox.splash.bmp \
+			"
 
-do_deploy() {
-	if [ "${BRAND_NAME}" = "4D" ];then
-		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOYDIR}/${MACHINE}.splash.bmp
-		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOYDIR}/
-		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOYDIR}/factory.bmp
-	elif [ "${BRAND_NAME}" = "IQON" ];then
-		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOYDIR}/${MACHINE}.splash.bmp
-		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOYDIR}/
-		install -m 0644 ${WORKDIR}/factory.bmp ${DEPLOYDIR}/
-	elif [ "${BRAND_NAME}" = "EDISION" ];then
-		install -m 0644 ${WORKDIR}/optimuss.splash.bmp ${DEPLOYDIR}/${MACHINE}.splash.bmp
-		install -m 0644 ${WORKDIR}/optimuss.splash.bmp ${DEPLOYDIR}/
-		install -m 0644 ${WORKDIR}/optimuss.factory.bmp ${DEPLOYDIR}/
-	elif [ "${BRAND_NAME}" = "MEDIABOX" ];then
-		install -m 0644 ${WORKDIR}/mediabox.splash.bmp ${DEPLOYDIR}/${MACHINE}.splash.bmp
-		install -m 0644 ${WORKDIR}/mediabox.splash.bmp ${DEPLOYDIR}/${MACHINE}.bmp
-		install -m 0644 ${WORKDIR}/factory.bmp ${DEPLOYDIR}/
-	fi
+do_install() {
+	if [ "${BRAND_NAME}" = "Technomate" ];then
+		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
+		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/
+		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/factory.bmp
+	elif [ "${BRAND_NAME}" = "Iqon" ];then
+		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
+		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/
+		install -m 0644 ${WORKDIR}/factory.bmp ${DEPLOY_DIR_IMAGE}/
+	elif [ "${BRAND_NAME}" = "Edition" ];then
+		install -m 0644 ${WORKDIR}/optimuss.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
+		install -m 0644 ${WORKDIR}/optimuss.splash.bmp ${DEPLOY_DIR_IMAGE}/
+		install -m 0644 ${WORKDIR}/optimuss.factory.bmp ${DEPLOY_DIR_IMAGE}/
+	elif [ "${BRAND_NAME}" = "Mediabox" ];then
+		install -m 0644 ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
+		install -m 0644 ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.bmp
+		install -m 0644 ${WORKDIR}/factory.bmp ${DEPLOY_DIR_IMAGE}/
+	fi  
 }
-
-addtask deploy before do_build after do_install

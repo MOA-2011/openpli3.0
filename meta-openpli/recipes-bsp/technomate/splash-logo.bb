@@ -18,6 +18,9 @@ SRC_URI = "file://factory.bmp \
 			"
 
 do_install() {
+	if [ ! -d ${DEPLOY_DIR_IMAGE} ]; then
+		mkdir -p ${DEPLOY_DIR_IMAGE}
+	fi
 	if [ "${BRAND_NAME}" = "Technomate" ];then
 		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/

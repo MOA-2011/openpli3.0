@@ -1,6 +1,5 @@
 ENIGMA2_PLUGINS = " \
-					enigma2-plugin-extensions-ppanel \
-					enigma2-plugin-extensions-autobouquets \
+					enigma2-plugin-systemplugins-crossepg \
 					enigma2-plugin-systemplugins-tempfancontrol \
 				"
 

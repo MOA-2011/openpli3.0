@@ -49,6 +49,8 @@ IMAGE_CMD_ubi_prepend = " \
 IMAGE_CMD_ubi_append = " \
         mkdir -p ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/; \
         cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/oe_rootfs.bin; \
+		cp ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/cfe.bin; \
+		cp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/splash.bmp; \
         gzip -f -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/oe_kernel.bin; \
         cd ${DEPLOY_DIR_IMAGE}; \
         zip ${IMAGE_NAME}-${KV}-${DATE}-usb.zip update/${MACHINE}/cfe/*; \

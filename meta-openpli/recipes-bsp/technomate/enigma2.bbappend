@@ -21,6 +21,8 @@ SRC_URI += " \
 		file://satellites.xml \
 		file://mediabox.var \
 		file://factory.var \
+		file://CCcam.xml \
+		file://PPanel_tutorial.xml \
 "
 
 S = "${WORKDIR}/git"
@@ -31,7 +33,8 @@ do_configure_prepend() {
 }
 
 do_install_append() {
-	install -d 0755 ${D}/usr/bin/
+		install -d 0755 ${D}/etc/ppanels/
+		install -d 0755 ${D}/usr/bin/
 		install -d 0755 ${D}/etc/tuxbox/
 		install -d 0755 ${D}/etc/enigma2/
 		install -d 0755 ${D}/var/
@@ -40,6 +43,8 @@ do_install_append() {
 #		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
 #		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
+		install -m 0755 ${WORKDIR}/CCcam.xml ${D}/etc/ppanels
+		install -m 0755 ${WORKDIR}/PPanel_tutorial.xml ${D}/etc/ppanels
 
 		ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 		ln -s /etc/tuxbox ${D}/var/tuxbox

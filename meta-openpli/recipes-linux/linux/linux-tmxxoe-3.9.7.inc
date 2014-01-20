@@ -1,21 +1,20 @@
 DESCRIPTION = "Linux kernel for ${MACHINE}"
 LICENSE = "GPL"
 SECTION = "kernel"
-KV = "3.9.7"
+KV = "3.9.7-r1"
 
-SRCDATE = "20131122"
 MACHINE_KERNEL_PR_append = ".5"
 
-SRC_URI[md5sum] = "ea154e3274e7b7b67ec59bd9cc530169"
-SRC_URI[sha256sum] = "dfa76314a99c41cbd668fc5563497f7121aaa13f108953e4a6eb326036e2ce90"
+SRC_URI[md5sum] = "33fc3a766bb70a2f272299979cd2a95a"
+SRC_URI[sha256sum] = "4202784fb9338cd61834670303fe368066e7f74c41583fe1d30c373c3f5ae73b"
 
-LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}-r2/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI = "http://192.168.1.138/linux-${KV}-r2.tar.gz \
+SRC_URI = "http://en3.homeftp.net/pub/src/linux-${KV}.tar.bz2 \
 		file://${MACHINE}_defconfig \
 		"
 
-S = "${WORKDIR}/linux-${KV}-r2"
+S = "${WORKDIR}/linux-${KV}"
 
 inherit kernel
 

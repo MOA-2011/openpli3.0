@@ -1,5 +1,5 @@
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
-	technomate-dvb-modules-7356 \
+	technomate-dvb-modules-${MACHINE} \
 	"
 
 include conf/machine/include/autoload-filesystems.inc

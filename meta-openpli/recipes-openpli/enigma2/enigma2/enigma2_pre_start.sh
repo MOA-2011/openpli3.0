@@ -285,38 +285,6 @@ init_softcam_link()
 	fi
 }
 
-foldname=/etc/opkg/
-host=/etc/hostname
-
-generate_distro_bymodel()
-{
-HWMODEL=`cat /proc/stb/info/hwmodel`
-
-for LINE in `ls $foldname`
-	do
-		filename=`basename $LINE .txt`
-
-		if [ "$HWMODEL" == "tm2toe" ];then
-			if [ "$LINE" == "tmtwinoesr-feed.conf" ];then
-				mv $foldname/tmtwinoesr-feed.conf $foldname/$HWMODEL-feed.conf
-				echo "src/gz openpli-tmtwinoesr http://en2.ath.cx/Openembedded/$HWMODEL" > $foldname/$HWMODEL-feed.conf
-				echo "$HWMODEL" > $host
-				`sed -i 's/tmtwinoesr/tm2toe/g' $foldname/arch.conf`
-			fi
-		elif [ "$HWMODEL" == "tmsingle" ];then
-			if [ "$LINE" == "tmtwinoesr-feed.conf" ];then
-				mv $foldname/tmtwinoesr-feed.conf $foldname/$HWMODEL-feed.conf
-				echo "src/gz openpli-tmtwinoesr http://en2.ath.cx/Openembedded/$HWMODEL" > $foldname/$HWMODEL-feed.conf
-				echo "$HWMODEL" > $host
-				`sed -i 's/tmtwinoesr/tmsingle/g' $foldname/arch.conf`
-			fi
-		fi
-done
-}
-
-#@ ipkg list update by model
-generate_distro_bymodel
-
 generate_default_ipkg_list
 # [iq
 #keycheck_process

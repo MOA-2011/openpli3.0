@@ -7,7 +7,7 @@ index 0b16ddd..f55a401
  		if fileExists("/proc/stb/info/vumodel"):
  			box['brand'] = "vuplus"
 +		elif fileExists("/proc/stb/info/hwmodel"):
-+			box['brand'] = '"4D"
++			box['brand'] = "4D"
  		elif fileExists("/proc/stb/info/azmodel"):
  			box['brand'] = "azbox"
  		elif fileExists("/proc/stb/info/gbmodel"):
@@ -28,13 +28,13 @@ index 89577d0..4953cf2 100755
  			ret["remote"] = "ini-7000"
  		elif ret["box"] == "xp1000":
  			ret["remote"] = "xp1000"
-+		elif ret["box"] in ( "tmtwinoe", "tm2toe", "tmsingleoe", "tmnanooe" )
++		elif ret["box"] in ( "tmtwinoe", "tm2toe", "tmsingleoe", "tmnanooe" ):
 +			ret["remote"] = "tm_models"
-+		elif ret["box"] in ( "ios100", "ios200", "ios300", "force1", "force1plus", "force2", "tmnano2tsuper" )
++		elif ret["box"] in ( "ios100", "ios200", "ios300", "force1", "force1plus", "force2", "tmnano2tsuper" ):
 +			ret["remote"] = "iqon_models"
-+		elif ret["box"] in ( "mediabox" )
++		elif ret["box"] in ( "mediabox" ):
 +			ret["remote"] = "mediabox"
-+		elif ret["box"] in ( "optimussos1", "optimussos2", "optimussos1plus", "optimussos2plus" )
++		elif ret["box"] in ( "optimussos1", "optimussos2", "optimussos1plus", "optimussos2plus" ):
 +			ret["remote"] = "edition"
  		else:
  			ret["remote"] = "dmm"

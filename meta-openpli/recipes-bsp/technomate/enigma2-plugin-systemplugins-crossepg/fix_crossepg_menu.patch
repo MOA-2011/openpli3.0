@@ -1,0 +1,52 @@
+diff --git a/VERSION b/VERSION
+index b616048..df4272f 100644
+--- a/VERSION
++++ b/VERSION
+@@ -1 +1 @@
+-0.6.2
++0.6.2+git296+3ab1eb3
+diff --git a/src/enigma2/python/crossepg_menu.py b/src/enigma2/python/crossepg_menu.py
+index 5ca8a9b..1adb9e8 100644
+--- a/src/enigma2/python/crossepg_menu.py
++++ b/src/enigma2/python/crossepg_menu.py
+@@ -53,10 +53,13 @@ class CrossEPG_Menu(Screen):
+ 		self.config.load()
+ 		self.patchtype = getEPGPatchType()
+ 
++		self.openTVMenuOn = True		# [iq]
++
+ 		l = []
+ 		l.append(self.buildListEntry(_("Configure"), "configure.png"))
+ 		l.append(self.buildListEntry(_("XMLTV providers"), "xmltv.png"))
+-		l.append(self.buildListEntry(_("OpenTV providers"), "opentv.png"))
++		if self.openTVMenuOn:		# [iq]
++			l.append(self.buildListEntry(_("OpenTV providers"), "opentv.png"))
+ 		l.append(self.buildListEntry(_("XEPGDB providers"), "xepgdb.png"))
+ 		l.append(self.buildListEntry(_("Scripts providers"), "scripts.png"))
+ 		l.append(self.buildListEntry(_("MHW2 providers"), "opentv.png"))
+@@ -98,6 +101,11 @@ class CrossEPG_Menu(Screen):
+ 
+ 	def openSelected(self):
+ 		index = self["list"].getIndex()
++# [iq
++		if not self.openTVMenuOn:
++			if index > 1:
++				index += 1
++# iq]
+ 		if index == 0:
+ 			self.session.open(CrossEPG_Setup)
+ 		elif index == 1:
+diff --git a/src/enigma2/python/plugin.py b/src/enigma2/python/plugin.py
+index 8e08244..5393dc6 100644
+--- a/src/enigma2/python/plugin.py
++++ b/src/enigma2/python/plugin.py
+@@ -4,7 +4,8 @@ from crossepg_locale import _
+ from Plugins.Plugin import PluginDescriptor
+ 
+ def setup(menuid, **kwargs):
+-	if menuid == "setup":
++#if menuid == "setup":
++	if menuid == "system":
+ 		return [("CrossEPG", crossepg_main.setup, "crossepg", None)]
+ 	else:
+ 		return []

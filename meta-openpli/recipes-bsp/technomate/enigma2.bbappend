@@ -39,9 +39,9 @@ do_install_append() {
 		install -d 0755 ${D}/etc/enigma2/
 		install -d 0755 ${D}/var/
 		install -d 0755 ${D}/usr/share/enigma2/skin_default/icons/
-#		install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
-#		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
-#		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
+		install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
+		install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
+		install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
 		install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
 		install -m 0755 ${WORKDIR}/CCcam.xml ${D}/etc/ppanels
 		install -m 0755 ${WORKDIR}/PPanel_tutorial.xml ${D}/etc/ppanels
@@ -75,6 +75,9 @@ do_install_append() {
 		elif [ "${BRAND_NAME}" = "Edition" ]; then
 			install -m 0755 ${WORKDIR}/optimuss.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
 			install -m 0755 ${WORKDIR}/optimuss.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
+		elif [ "${BRAND_NAME}" = "Technomate" ]; then
+			install -m 0755 ${WORKDIR}/input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/
+			install -m 0755 ${WORKDIR}/input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/
 		elif [ "${MACHINE}" = "tmtwinoe" ]; then
 			touch ${D}/etc/.ci					# IQON : TMtwinoe default ci yes.
 		else

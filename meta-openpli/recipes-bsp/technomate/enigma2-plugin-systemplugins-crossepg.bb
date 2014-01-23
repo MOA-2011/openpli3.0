@@ -16,7 +16,7 @@ inherit python-dir
 
 require openplugins.inc
 
-SRC_URI += "file://fix_crossepg_menu.patch"
+SRC_URI += "file://fix_crossepg_menu.patch;striplevel=1"
 
 FILES_${PN} = "/usr/*"
 FILES_${PN}-dbg += "/usr/crossepg/scripts/mhw2epgdownloader/.debug"

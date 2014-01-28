@@ -9,4 +9,6 @@ do_install_append() {
 	ln -sf media ${D}/mnt
 	rm -rf ${D}/media/*
 	rm -fr ${D}/tmp
+# IQON : factory package list symbolic link
+	ln -s /var/lib/opkg ${D}/usr/lib/ipkg
 }

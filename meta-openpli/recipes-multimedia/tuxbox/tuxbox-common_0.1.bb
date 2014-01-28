@@ -15,7 +15,7 @@ S = "${WORKDIR}"
 
 inherit allarch
 
-TRANSPONDER_LISTS = "satellites.xml terrestrial.xml"
+TRANSPONDER_LISTS = "satellites.xml"
 
 do_install() {
 	install -d ${D}/etc/tuxbox/

@@ -7,14 +7,11 @@ SRC_URI += " \
 		file://restore.sh \
 		file://var \
 		file://def_ins \
-		file://ios.input_rcold-configured.png \
-		file://ios.input_rcold.png \
-		file://optimuss.input_rcold-configured.png \
-		file://optimuss.input_rcold.png \
-		file://input_rcold-configured.png \
-		file://input_rcold.png \
-		file://mediabox.input_rcold-configured.png \
-		file://mediabox.input_rcold.png \
+		file://profile \
+		${@base_contains('BRAND_NAME', 'Technomate', 'file://input_rcold-configured.png file://input_rcold.png','',d)} \
+		${@base_contains('BRAND_NAME', 'Iqon', 'file://ios.input_rcold-configured.png file://ios.input_rcold.png','',d)} \
+		${@base_contains('BRAND_NAME', 'Edition', 'file://optimuss.input_rcold-configured.png file://optimuss.input_rcold.png','',d)} \
+		${@base_contains('BRAND_NAME', 'Mediabox', 'file://mediabox.input_rcold-configured.png file://mediabox.input_rcold.png','',d)} \
 		file://menu-${MACHINE}.xml \
 		file://setup.xml \
 		file://e2settings \
@@ -64,6 +61,7 @@ do_install_append() {
 
 		cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
 		cp ${WORKDIR}/satellites.xml ${D}/etc/tuxbox
+		cp ${WORKDIR}/profile ${D}${sysconfdir}/enigma2/
 
 		if [ "${BRAND_NAME}" = "Mediabox" ]; then
 			install -m 0755 ${WORKDIR}/mediabox.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png

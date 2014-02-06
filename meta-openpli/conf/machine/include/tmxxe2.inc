@@ -5,9 +5,9 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS = " \
 include conf/machine/include/autoload-filesystems.inc
 
 MACHINE_EXTRA_RRECOMMENDS = " \
-	vuplus-shutdown \
+	cfe-bootloader \
+	splash-logo \
 	gst-plugin-dvbmediasink \
-	ntfs-3g \
 	"
 
 EXTRA_IMAGEDEPENDS += "\

@@ -13,7 +13,7 @@ PR = "r0.72"
 
 require openplugins-distutils.inc
 
-SRC_URI += "file://fix_models.patch;striplevel=1 \
+SRC_URI += "file://fix_openwebif.patch;striplevel=1 \
 			file://${MACHINE}.html \
 			file://${MACHINE}.jpg \
 			file://${MACHINE}.png \

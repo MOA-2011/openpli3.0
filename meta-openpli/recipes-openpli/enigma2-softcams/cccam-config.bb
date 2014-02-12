@@ -5,7 +5,7 @@ PN = "enigma2-plugin-softcams-cccam-config"
 PV = "1.0"
 PR = "r0"
 
-SRC_URI = "http://en2.ath.cx/pub/OpenPLi3/src/cccam-config-${PV}.tar.gz"
+SRC_URI = "http://ilove.hobby-site.com/pub/OpenPLi3/src/cccam-config-${PV}.tar.gz"
 
 S = "${WORKDIR}"
 

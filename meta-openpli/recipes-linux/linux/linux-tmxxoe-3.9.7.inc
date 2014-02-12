@@ -10,7 +10,7 @@ SRC_URI[sha256sum] = "4202784fb9338cd61834670303fe368066e7f74c41583fe1d30c373c3f
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI = "http://en3.homeftp.net/pub/src/linux-${KV}.tar.bz2 \
+SRC_URI = "http://en3.homeftp.net/pub/src/linux-${KV}.tar.gz \
 		file://${MACHINE}_defconfig \
 		"
 

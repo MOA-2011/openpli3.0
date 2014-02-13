@@ -7,9 +7,9 @@ KV = "3.9.7"
 KV_EXTRA = ""
 PV = "${KV}+${SRCDATE}"
 
-SRCDATE = "20140212"
+SRCDATE = "20140213"
 
-SRC_URI = "http://en3.homeftp.net/release/images/oedrivers//bcmlinuxdvb_${CHIP}-${KV}-${SRCDATE}.tar.gz"
+SRC_URI = "http://en3.homeftp.net/release/images/oedrivers/bcmlinuxdvb_${CHIP}-${KV}-${SRCDATE}.tar.gz"
 
 S = "${WORKDIR}"
 
@@ -26,6 +26,7 @@ do_install() {
 		install -d ${D}/lib/modules/${KV}/extra
 		for f in ${S}/lib/modules/${KV}/extra/*.ko; do
 			install -m 0644 $f ${D}/lib/modules/${KV}/extra;
+			cp $f ${DEPLOY_DIR}
 		done
 		install -d ${D}/${sysconfdir}/modules-load.d
 		for i in `ls ${D}/lib/modules/${KV}/extra | grep \\.ko | sed -e 's/.ko//g'`; do
@@ -33,5 +34,5 @@ do_install() {
 		done
 }
 
-SRC_URI[md5sum] = "3851055bc3addf3acd3260063b392c7d"
-SRC_URI[sha256sum] = "18b16b2d286c285144396a523a75fc02cd1432ee3e1aad7595e00d227711c2f7"
+SRC_URI[md5sum] = "e2920a755e2e8a034bc3da50612a34cc"
+SRC_URI[sha256sum] = "2b14e1538fb9b24f2517e460a42e4c5f624a1e396bc4e996ed00b876f9d5208e"

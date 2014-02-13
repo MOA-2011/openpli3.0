@@ -7,7 +7,9 @@ KV = "3.9.7"
 KV_EXTRA = ""
 PV = "${KV}+${SRCDATE}"
 
-SRC_URI = "http://192.168.1.138/bcmlinuxdvb_${CHIP}-${KV}-${SRCDATE}.tar.gz"
+SRCDATE = "20140212"
+
+SRC_URI = "http://en3.homeftp.net/release/images/oedrivers//bcmlinuxdvb_${CHIP}-${KV}-${SRCDATE}.tar.gz"
 
 S = "${WORKDIR}"
 
@@ -30,3 +32,6 @@ do_install() {
 		    echo $i _hwtype=\$hwtypenum >> ${D}/${sysconfdir}/modules-load.d/_${MACHINE}.conf
 		done
 }
+
+SRC_URI[md5sum] = "3851055bc3addf3acd3260063b392c7d"
+SRC_URI[sha256sum] = "18b16b2d286c285144396a523a75fc02cd1432ee3e1aad7595e00d227711c2f7"

@@ -150,12 +150,13 @@ $(CURDIR)/site.conf:
 	@echo 'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' >> $@
 	@echo 'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' >> $@
 	@echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@
-	@if [ '`getconf LONG_BIT`' == 64 ]; then
-		echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@
-	@else
-		echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@
-	fi
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
+	@if [ '`getconf LONG_BIT`' == 64 ]; then \
+		echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@; \
+	fi
+	@if [ '`getconf LONG_BIT`' == 32 ]; then \
+		echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@; \
+	fi
 #	@echo 'INHERIT += "rm_work"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \

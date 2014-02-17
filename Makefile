@@ -1,10 +1,10 @@
 #!/usr/bin/make -f
 
 # MACHINE examples: et4x00 et5x00 et6x00 et9x00 dm500hd dm800se dm7020hd dm8000 xp1000
-MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
+#MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
 
 ifeq "$(MACHINE)" ""
-	MACHINE=tmtwinoe
+	MACHINE?=tmnanooe
 endif
 
 # Adjust according to the number CPU cores to use for parallel build.
@@ -149,14 +149,8 @@ $(CURDIR)/site.conf:
 	@echo 'SCONF_VERSION = "1"' >> $@
 	@echo 'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' >> $@
 	@echo 'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' >> $@
-	@echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
-	@if [ '`getconf LONG_BIT`' == 64 ]; then \
-		echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@; \
-	fi
-	@if [ '`getconf LONG_BIT`' == 32 ]; then \
-		echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@; \
-	fi
+	@echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@
 #	@echo 'INHERIT += "rm_work"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \

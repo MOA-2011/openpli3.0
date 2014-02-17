@@ -7,5 +7,4 @@ IMAGE_INSTALL += " \
 				  busybox-mdev \
 				  gst-plugins-ugly \
 				  libcrypto-compat \
-				  technomate-custom \
 				  "

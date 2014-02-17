@@ -1,36 +1,26 @@
-ENIGMA2_PLUGINS = " \
-					enigma2-plugin-systemplugins-crossepg \
-					enigma2-plugin-extensions-autobackup \
-					enigma2-plugin-extensions-cutlisteditor \
-					enigma2-plugin-extensions-graphmultiepg \
-					enigma2-plugin-extensions-mediaplayer \
-					enigma2-plugin-extensions-mediascanner \
-					enigma2-plugin-extensions-openwebif \
-					enigma2-plugin-extensions-ppanel \
-					\
-					enigma2-plugin-pli-softcamsetup \
-					\
-					enigma2-plugin-systemplugins-fastscan \
-					enigma2-plugin-systemplugins-hotplug \
-					enigma2-plugin-systemplugins-networkbrowser \
-					enigma2-plugin-systemplugins-positionersetup \
-					enigma2-plugin-systemplugins-satfinder \
-					enigma2-plugin-systemplugins-skinselector \
-					enigma2-plugin-systemplugins-softwaremanager \
-					enigma2-plugin-systemplugins-videomode \
-					enigma2-plugin-systemplugins-videotune \
-					\
-					${@base_contains("MACHINE_FEATURES", "hdmicec", "enigma2-plugin-systemplugins-hdmicec" , "", d)} \
-					${@base_contains("MACHINE_FEATURES", "osdposition", "enigma2-plugin-systemplugins-osdpositionsetup" , "", d)} \
-					\
-					${@base_contains('OPENPLI_FEATURES', 'fan', 'enigma2-plugin-systemplugins-tempfancontrol', '', d)} \
-					enigma2-plugin-systemplugins-networkwizard \
-				"
-
-IMAGE_INSTALL += " \
-		enigma2-plugin-softcams-newcs \
-		enigma2-plugin-softcams-newcs-config \
-		enigma2-plugin-softcams-mgcamd \
-		enigma2-plugin-softcams-cccam221 \
-		enigma2-plugin-softcams-cccam-config \
-				  "
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-crossepg"
+ENIGMA2_PLUGINS += "enigma2-plugin-extensions-autobackup"
+ENIGMA2_PLUGINS += "enigma2-plugin-extensions-cutlisteditor"
+ENIGMA2_PLUGINS += "enigma2-plugin-extensions-graphmultiepg"
+ENIGMA2_PLUGINS += "enigma2-plugin-extensions-mediaplayer"
+ENIGMA2_PLUGINS += "enigma2-plugin-extensions-mediascanner"
+ENIGMA2_PLUGINS += "enigma2-plugin-extensions-openwebif"
+ENIGMA2_PLUGINS += "enigma2-plugin-extensions-ppanel"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-fastscan"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-hotplug"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-networkbrowser"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-positionersetup"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-satfinder"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-skinselector"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-softwaremanager"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-videomode"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-videotune"
+ENIGMA2_PLUGINS += "${@base_contains("MACHINE_FEATURES", "hdmicec", "enigma2-plugin-systemplugins-hdmicec" , "", d)}"
+ENIGMA2_PLUGINS += "${@base_contains("MACHINE_FEATURES", "osdposition", "enigma2-plugin-systemplugins-osdpositionsetup" , "", d)}"
+ENIGMA2_PLUGINS += "${@base_contains('OPENPLI_FEATURES', 'fan', 'enigma2-plugin-systemplugins-tempfancontrol', '', d)}"
+ENIGMA2_PLUGINS += "enigma2-plugin-systemplugins-networkwizard"
+IMAGE_INSTALL += "enigma2-plugin-softcams-newcs"
+IMAGE_INSTALL += "enigma2-plugin-softcams-newcs-config"
+IMAGE_INSTALL += "enigma2-plugin-softcams-mgcamd"
+IMAGE_INSTALL += "enigma2-plugin-softcams-cccam221"
+IMAGE_INSTALL += "enigma2-plugin-softcams-cccam-config"

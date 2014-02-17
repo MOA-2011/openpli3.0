@@ -72,7 +72,7 @@ initialize: init
 
 init: $(BBLAYERS) $(CONFFILES)
 
-image: init
+image: init update
 	@echo 'Building image for $(MACHINE)'
 	@. $(TOPDIR)/env.source && cd $(TOPDIR) && bitbake openpli-enigma2-image
 

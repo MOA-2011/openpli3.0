@@ -150,7 +150,12 @@ $(CURDIR)/site.conf:
 	@echo 'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' >> $@
 	@echo 'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' >> $@
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
-	@echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@
+	@if [ '`cat /etc/issue.net | awk '{print $1}'`' == "Debian" ];then \
+		echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@ \
+	else \
+		echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@; \
+	fi
+	@echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@
 #	@echo 'INHERIT += "rm_work"' >> $@
 
 BBLAYERS_CONF_HASH := $(call hash, \

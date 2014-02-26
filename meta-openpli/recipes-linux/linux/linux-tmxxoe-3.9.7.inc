@@ -3,6 +3,8 @@ LICENSE = "GPL"
 SECTION = "kernel"
 KV = "3.9.7-r1"
 
+DATE = "20140226"
+
 MACHINE_KERNEL_PR_append = ".5"
 
 SRC_URI[md5sum] = "0e42db504cafbbe502cc1e172c757dd9"
@@ -10,7 +12,7 @@ SRC_URI[sha256sum] = "eb069c4f3ae9ab11bb1aa8646f9044f06373c285ae30473f9212791f1a
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-SRC_URI = "http://en3.homeftp.net/pub/src/linux-${KV}.tar.gz \
+SRC_URI = "http://en3.homeftp.net/pub/src/linux-${KV}-${DATE}.tar.gz \
 		file://${MACHINE}_defconfig \
 		"
 

@@ -21,8 +21,8 @@ PKGV = "1.0+git${GITPKGV}"
 PR = "r7"
 
 SRC_URI = "git://github.com/pli3/enigma2-plugins.git;protocol=git \ 
-		   file://pythonpaths.patch \
-		   "
+           file://pythonpaths.patch \
+          "
 
 S = "${WORKDIR}/git"
 
@@ -50,4 +50,5 @@ python populate_packages_prepend () {
 do_install_append() {
 	find ${D}/usr/lib/enigma2/python/ -name '*.pyc' -exec rm {} \;
 }
+
 

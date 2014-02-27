@@ -7,7 +7,9 @@ PR = "r0"
 VERSION := "${PV}"
 PV = "${VERSION}+svn${SRCPV}"
 
-SRC_URI = "${PLISVNURL}/${PLISVNBRANCH}/cdk/cdk;module=root;proto=${PLISVNPROTO}"
+SRC_URI = "${PLISVNURL}/${PLISVNBRANCH}/cdk/cdk;module=root;proto=${PLISVNPROTO} \
+		   file://satellites.xml \
+		   "
 
 FILES_${PN} = "/"
 
@@ -15,14 +17,17 @@ S = "${WORKDIR}"
 
 inherit allarch
 
-TRANSPONDER_LISTS = "satellites.xml"
+# default tm channel list
+#TRANSPONDER_LISTS = "satellites.xml"
 
 do_install() {
 	install -d ${D}/etc/tuxbox/
 	install -d ${D}/usr/share/tuxbox
 	install -m 0644 ${S}/root/share/tuxbox/scart.conf ${D}/etc/tuxbox/scart.conf
+	install -m 0644 ${S}/satellites.xml ${D}/etc/tuxbox/satellites.xml
 
 	install -m 0644 ${S}/root/etc/timezone.xml ${D}/etc/tuxbox/timezone.xml
+
 	ln -sf /etc/tuxbox/timezone.xml ${D}/etc/
 
 	ln -sf /usr/share ${D}/share

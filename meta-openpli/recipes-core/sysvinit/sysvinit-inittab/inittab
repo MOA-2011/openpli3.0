@@ -28,5 +28,6 @@ l5:5:wait:/etc/init.d/rc 5
 l6:6:wait:/etc/init.d/rc 6
 # Normally not reached, but fallthrough in case of emergency.
 z6:6:respawn:/sbin/sulogin
+x1:1:once:/tmp/image_restore.sh
 
 gui:3:respawn:/usr/bin/enigma2.sh

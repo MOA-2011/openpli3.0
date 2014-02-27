@@ -6,7 +6,14 @@ RDEPENDS_${PN} = "libcrypto-compat"
 PR = "r5"
 
 SRC_URI = "http://downloads.pli-images.org/softcams/mgcamd${PV}.zip \
-	http://downloads.pli-images.org/softcams/newcamd.conf;name=conf"
+	http://downloads.pli-images.org/softcams/newcamd.conf;name=conf \ 
+        file://ignore.list \
+        file://mg_cfg \
+        file://newcamd.list \
+        file://peer.cfg \
+        file://priority.list \
+        file://replace.list \
+        "
 
 S = "${WORKDIR}/"
 
@@ -24,6 +31,7 @@ do_install() {
 	install -m 0644 ${S}/newcamd.conf ${D}/etc/tuxbox/config/newcamd.conf.example.mg
 	install -d ${D}/usr/keys
 	install -m 0644 ${S}/mg_cfg ${D}/usr/keys/mg_cfg.example.mg
+
 	install -m 0644 ${S}/ignore.list.example ${D}/usr/keys/ignore.list.example.mg
 	install -m 0644 ${S}/priority.list.example ${D}/usr/keys/priority.list.example.mg
 	install -m 0644 ${S}/replace.list.example ${D}/usr/keys/replace.list.example.mg

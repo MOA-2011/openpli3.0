@@ -261,30 +261,29 @@ do_install_append() {
 	install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
 	install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
 	install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
+
 	ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 	ln -s /etc/tuxbox ${D}/var/tuxbox
+
 	cp ${WORKDIR}/var ${D}/etc/var.tar
 	cp ${WORKDIR}/factory.var ${D}/etc/factory.var.tar
 	cp ${WORKDIR}/menu-${MACHINE}.xml ${D}/usr/share/enigma2/menu.xml
-
-#	if [ "${MACHINE}" = tmnano2t ];then
 	cp ${WORKDIR}/${MACHINE}.keymap.xml ${D}/usr/share/enigma2/keymap.xml
-#	else
-#		cp ${WORKDIR}/keymap.xml ${D}/usr/share/enigma2/keymap.xml
-#	fi
+
 	tar xf ${WORKDIR}/def_ins -C ${WORKDIR}/
+
 	mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
 	cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
 	cp ${WORKDIR}/satellites.xml ${D}/etc/tuxbox
-	cp -rf ${WORKDIR}/mediabox.var ${D}/etc/mediabox.var # factory image
 
-	if [ "${MACHINE}" = "mediabox" ];then
+	if [ "${BRAND_NAME}" = "Mediabox" ]; then
         install -m 0755 ${WORKDIR}/mediabox.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
         install -m 0755 ${WORKDIR}/mediabox.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
-	elif [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
+		cp -rf ${WORKDIR}/mediabox.var ${D}/etc/mediabox.var # factory image
+	elif [ "${BRAND_NAME}" = "Iqon" ]; then
 		install -m 0755 ${WORKDIR}/ios.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
 		install -m 0755 ${WORKDIR}/ios.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
-	elif [ "${MACHINE}" = "optimussos1" -o "${MACHINE}" = "optimussos2" -o "${MACHINE}" = "optimussos1plus" -o "${MACHINE}" = "optimussos2plus" ];then
+	elif [ "${BRAND_NAME}" = "Edition" ]; then
 		install -m 0755 ${WORKDIR}/optimuss.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
 		install -m 0755 ${WORKDIR}/optimuss.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
 	elif [ "${MACHINE}" = "tmtwinoe" ]; then

@@ -66,6 +66,6 @@ IMAGE_CMD_ubi_append = " \
 
 TARGET_FPU = "hard"
 
-MACHINE_FEATURES += "alsa usbhost wifi 3dtv switchoff osdposition hdmicec"
+MACHINE_FEATURES += "alsa dvbusb usbhost wifi 3dtv switchoff osdposition hdmicec"
 
 require conf/machine/include/tune-mips32.inc

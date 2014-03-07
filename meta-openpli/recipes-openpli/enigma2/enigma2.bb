@@ -154,6 +154,7 @@ PR = "r49"
 ENIGMA2_BRANCH ?= "master"
 
 SRC_URI = "${ENIGMA2_URI};protocol=git;branch=${ENIGMA2_BRANCH} \
+		   file://startwizard.patch;striplevel=1 \
 		   ${@base_contains('BRAND_NAME', 'Iqon', 'file://ios.input_rcold-configured.png file://ios.input_rcold.png', '', d)} \
 		   ${@base_contains('BRAND_NAME', 'Edition', 'file://optimuss.input_rcold-configured.png file://optimuss.input_rcold.png', '', d)} \
 		   ${@base_contains('BRAND_NAME', 'Technomate', 'file://input_rcold-configured.png file://input_rcold.png', '', d)} \

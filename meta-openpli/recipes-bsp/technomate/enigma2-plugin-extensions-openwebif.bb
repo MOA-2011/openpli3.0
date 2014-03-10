@@ -11,15 +11,24 @@ PV = "0.1+git${SRCPV}"
 PKGV = "0.1+git${GITPKGV}"
 PR = "r0.72"
 
-require openplugins-distutils.inc
+DEPENDS += "enigma2"
 
-SRC_URI += "file://fix_openwebif.patch;striplevel=1 \
+SRC_URI = "git://github.com/pli3/Openwebif.git;protocol=git"
+
+S="${WORKDIR}/git"
+
+SRCREV_pn-${PN} ?= "${AUTOREV}"
+
+#require openplugins.inc
+
+SRC_URI += "file://base.py \
+			file://info.py \
 			file://${MACHINE}.html \
 			file://${MACHINE}.jpg \
 			file://${MACHINE}.png \
-	"
-
-S="${WORKDIR}/git"
+			file://ajax.py \
+			file://timers.py \
+"
 
 # Just a quick hack to "compile" it
 do_compile() {
@@ -30,42 +39,44 @@ do_compile() {
 PLUGINPATH = "/usr/lib/enigma2/python/Plugins/Extensions/${MODULE}"
 do_install() {
 	install -d ${D}${PLUGINPATH}
-
-	cp -rf ${S}/plugin/* ${D}${PLUGINPATH}
-
+	cp -rp ${S}/plugin/* ${D}${PLUGINPATH}
+	cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
+	cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
+	cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
+	cp -rp ${WORKDIR}/timers.py ${D}${PLUGINPATH}/controllers/models/
 	find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 
 	if [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then
-		cp -rf ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/${MACHINE}hd.jpg
-		cp -rf ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/${MACHINE}hd.png
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/${MACHINE}hd.jpg
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/${MACHINE}hd.png
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/${MACHINE}hd.html
 	elif [ "${MACHINE}" = "mediabox" ]; then
-		cp -rf ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Mediabox\ HD\ LX-1.jpg
-		cp -rf ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Mediabox\ HD\ LX-1.jpg
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 	elif [ "${MACHINE}" = "optimussos1" ]; then
-		cp -rf ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS1.jpg
-		cp -rf ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS1.jpg
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 	elif [ "${MACHINE}" = "optimussos2" ]; then
-		cp -rf ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS2.jpg
-		cp -rf ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS2.jpg
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 	elif [ "${MACHINE}" = "optimussos1plus" ]; then
-		cp -rf ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS1+.jpg
-		cp -rf ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS1+.jpg
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 	elif [ "${MACHINE}" = "optimussos2plus" ]; then
-		cp -rf ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS2+.jpg
-		cp -rf ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/Optimuss\ OS2+.jpg
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 	elif [ "${MACHINE}" = "force1plus" ]; then
-		cp -rf ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/force1+.jpg
-		cp -rf ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/force1+.jpg
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 	else
-		cp -rf ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/
-		cp -rf ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
+		cp -rp ${WORKDIR}/${MACHINE}.jpg ${D}${PLUGINPATH}/public/images/boxes/
+		cp -rp ${WORKDIR}/${MACHINE}.png ${D}${PLUGINPATH}/public/images/remotes/
 		cp -rf ${WORKDIR}/${MACHINE}.html ${D}${PLUGINPATH}/public/static/remotes/
 	fi
 }

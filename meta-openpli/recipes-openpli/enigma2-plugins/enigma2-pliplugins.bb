@@ -18,11 +18,10 @@ inherit gitpkgv
 
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
-PR = "r7"
+PR = "r5"
 
-SRC_URI = "git://github.com/pli3/enigma2-plugins.git;protocol=git \ 
-           file://pythonpaths.patch \
-          "
+SRC_URI = "git://openpli.git.sourceforge.net/gitroot/openpli/enigma2-plugins;protocol=git \
+		   file://pythonpaths.patch"
 
 S = "${WORKDIR}/git"
 
@@ -50,5 +49,4 @@ python populate_packages_prepend () {
 do_install_append() {
 	find ${D}/usr/lib/enigma2/python/ -name '*.pyc' -exec rm {} \;
 }
-
 

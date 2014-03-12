@@ -27,7 +27,15 @@ IMAGE_INSTALL = " \
 	util-linux-sfdisk \
 	volatile-media \
 	vsftpd \
+	sysfsutils \
+	gmp \
+	tslib \
+	openssl \
 	mtd-utils \
+	python-gdata \
+	busybox-mdev \
+	gst-plugins-ugly \
+	libcrypto-compat \
 	"
 
 OPTIONAL_PACKAGES ?= ""

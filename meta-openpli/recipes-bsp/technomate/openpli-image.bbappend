@@ -1,4 +1,6 @@
 IMAGE_INSTALL += " \
+				  sysfsutils \
+				  gmp \
 				  tslib \
 				  openssl \
 				  mtd-utils \

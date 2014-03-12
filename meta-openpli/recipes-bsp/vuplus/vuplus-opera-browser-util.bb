@@ -3,35 +3,26 @@ SECTION = "base"
 PRIORITY = "optional"
 LICENSE = "CLOSED"
 
-DEPENDS = "tslib mpfr gmp"
+DEPENS = "tslib mpfr gmp "
+RDEPENS = "tslib-conf libts-1.0-0 libsysfs2 libgmp3 libmpfr1 "
 
-SRC_DATE = "20130425_pli0"
-SRC_URI = ""
+SRC_DATE = "20121128_0"
+SRC_URI = "http://ilove.hobby-site.com/pub/OpenPLi3/src/opera-hbbtv_${SRC_DATE}.tar.gz \
+		   file://setting.ini \
+		   "
 
-PR = "r3_${SRC_DATE}"
+PR = "r2_${SRC_DATE}"
 
 S = "${WORKDIR}/opera-hbbtv"
 
-SRC_FILE = "opera-hbbtv_${SRC_DATE}.tar.gz"
-do_fetch() {
-       if [ ! -e ${DL_DIR}/${SRC_FILE} -a -e /etc/vuplus_browser.pwd ]; then
-sshpass -f /etc/vuplus_browser.pwd sftp guestuser@code.vuplus.com << +
-get ${SRC_FILE}
-bye
-+
-       fi
-       cp -av ${DL_DIR}/${SRC_FILE} ${WORKDIR}/
-}
-
-do_unpack() {
-       tar xvfz ${SRC_FILE}
-}
-
 do_install() {
+	install -d ${D}/usr
+	install -d ${D}/usr/local
 	install -d ${D}/usr/local/hbb-browser
 
 	mv ${S}/opera/lib/libopera.so ${S}/opera/lib/libopera.so.0
 	cp -avR ${S}/opera/* ${D}/usr/local/hbb-browser/
+	cp ${WORKDIR}/setting.ini ${D}/usr/local/hbb-browser/home/
 
 	install -d ${D}/etc
 	cp -avR ${S}/dfb/etc/* ${D}/etc/
@@ -45,11 +36,12 @@ do_install() {
 	install -d ${D}/usr/share
 	cp -avR ${S}/dfb/usr/share/* ${D}/usr/share/
 
+	install -d ${D}/usr/lib/enigma2
+	install -d ${D}/usr/lib/enigma2/python
+	install -d ${D}/usr/lib/enigma2/python/Plugins
+	install -d ${D}/usr/lib/enigma2/python/Plugins/Extensions
 	install -d ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
 	cp -avR ${S}/plugin/* ${D}/usr/lib/enigma2/python/Plugins/Extensions/HbbTV
-}
-
-do_package_qa() {
 }
 
 INHIBIT_PACKAGE_STRIP = "1"
@@ -59,5 +51,5 @@ PACKAGES = "${PN}"
 PROVIDES="${PACKAGES}"
 PACKAGE_ARCH := "${MACHINE_ARCH}"
 
-SRC_URI[md5sum] = "2e16afc3db22f80cf99de3bfb891fa06"
-SRC_URI[sha256sum] = "41bbf4cda0b19ca7c79cb06ec4ab8cafee62fd9944d17e71978d4c9e6d72d264"
+SRC_URI[md5sum] = "5a8bf37321bcb2c8b23b4538d3862e87"
+SRC_URI[sha256sum] = "4e3a41188b81a871d7f0bf559d1cd0efc5f2faded9d37ca81c4e28e0675b5178"

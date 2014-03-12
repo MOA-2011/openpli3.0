@@ -173,7 +173,6 @@ DVB_USB_DRIVERS = " \
 	kernel-module-xfrm6-tunnel \
 	kernel-module-xfrm-algo \
 	kernel-module-xfrm-ipcomp \
-	kernel-module-xfs \
 	kernel-module-x-tables \
 	kernel-module-xt-classify \
 	kernel-module-xt-connmark \

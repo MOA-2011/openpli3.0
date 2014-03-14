@@ -166,7 +166,6 @@ SRC_URI = "${ENIGMA2_URI};protocol=git;branch=${ENIGMA2_BRANCH} \
 			file://var \
 			file://def_ins \
 			file://menu-${MACHINE}.xml \
-			file://setup.xml \
 			file://e2settings \
 			file://satellites.xml \
 			file://factory.var \
@@ -259,7 +258,6 @@ do_install_append() {
 	install -m 0755 ${WORKDIR}/enigma2_end.sh ${D}/usr/bin/
 	install -m 0755 ${WORKDIR}/enigma2_pre_start.sh ${D}/usr/bin/
 	install -m 0755 ${WORKDIR}/enigma2.sh ${D}/usr/bin/
-	install -m 0755 ${WORKDIR}/setup.xml ${D}/usr/share/enigma2/
 
 	ln -s /usr/bin/opkg ${D}/usr/bin/ipkg
 	ln -s /etc/tuxbox ${D}/var/tuxbox

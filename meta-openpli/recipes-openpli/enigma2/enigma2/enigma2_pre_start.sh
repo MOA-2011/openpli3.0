@@ -291,7 +291,3 @@ generate_default_ipkg_list
 # iq]
 
 frontled_message "`cat /proc/stb/info/hwmodel`"
-
-
-
-

@@ -35,7 +35,6 @@ IMAGE_INSTALL = " \
 	python-gdata \
 	busybox-mdev \
 	gst-plugins-ugly \
-	libcrypto-compat \
 	"
 
 OPTIONAL_PACKAGES ?= ""

@@ -19,7 +19,9 @@ FILES_font-valis-hd = "/usr/share/fonts/hd.ttf /usr/share/fonts/hdi.ttf"
 PACKAGES = "${PN} font-valis-hd"
 PROVIDES = "${PN} font-valis-hd"
 
-SRC_URI = "git://github.com/littlesat/skin-PLiHD.git;protocol=git"
+SRC_URI = "git://github.com/littlesat/skin-PLiHD.git;protocol=git \
+		   file://skin.diff \
+		   "
 
 FILES_${PN} = "/usr/share/enigma2/"
 

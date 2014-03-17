@@ -11,4 +11,5 @@ do_install_append() {
 	rm -fr ${D}/tmp
 # IQON : factory package list symbolic link
 	ln -s /var/lib/opkg ${D}/usr/lib/ipkg
+	ln -s libcrypto.so.0.9.8 ${D}/lib/libcrypto.so.0.9.7
 }

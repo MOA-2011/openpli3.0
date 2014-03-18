@@ -1,0 +1,25 @@
+--- A/linux-3.9.7-r1/arch/mips/brcmstb/setup.c	2014-02-26 13:34:47.000000000 +0900
++++ B/linux-3.9.7-r1/arch/mips/brcmstb/setup.c	2014-03-18 12:12:32.187791741 +0900
+@@ -1025,22 +1025,13 @@
+ 	}
+ 
+ }
+-static void fixme_micom_send_data(const u8 *data, u8 count)
+-{
+-	/* only need for tmtwin micom */
+-	micom_send_data(data, count);
+-}
+ 
+ static void micom_standby(void)
+ {
+ 	/* Last char 0x0a is power key value
+ 	   Enable this key to get on standby */
+-	u8 micom_init_seq[9] = { 0x7f, 0x7, 0x10, 0x84, 0x71, 0x1, 0x4, 0x4, 0x0a };
+ 	u8 micom_standby[3] = { 0x7f, 0x1, 0x40 };
+ 
+-	/* set micom to get power key */
+-	fixme_micom_send_data(micom_init_seq, 9);
+-
+ 	/* micom power off */
+ 	micom_send_data(micom_standby, 3);
+ 

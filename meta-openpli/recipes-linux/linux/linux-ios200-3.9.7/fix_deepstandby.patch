@@ -1,5 +1,5 @@
---- A/linux-3.9.7-r1/arch/mips/brcmstb/setup.c	2014-02-26 13:34:47.000000000 +0900
-+++ B/linux-3.9.7-r1/arch/mips/brcmstb/setup.c	2014-03-18 12:12:32.187791741 +0900
+--- linux-3.9.7-r1/arch/mips/brcmstb/setup.c	2014-02-26 13:34:47.000000000 +0900
++++ linux-3.9.7-r1.A/arch/mips/brcmstb/setup.c	2014-03-18 12:12:32.187791741 +0900
 @@ -1025,22 +1025,13 @@
  	}
  

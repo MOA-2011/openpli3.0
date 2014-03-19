@@ -260,6 +260,7 @@ IMAGE_INSTALL += " \
 	aio-grab \
 	enigma2 \
 	libavahi-client \
+	openssl \
 	settings-autorestore \
 	tuxbox-common \
 	${ENIGMA2_PLUGINS} \

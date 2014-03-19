@@ -43,7 +43,7 @@ do_install() {
 	cp -rp ${WORKDIR}/ajax.py ${D}${PLUGINPATH}/controllers/
 	cp -rp ${WORKDIR}/base.py ${D}${PLUGINPATH}/controllers/
 	cp -rp ${WORKDIR}/info.py ${D}${PLUGINPATH}/controllers/models/
-	cp -rp ${WORKDIR}/timers.py ${D}${PLUGINPATH}/controllers/models/
+#	cp -rp ${WORKDIR}/timers.py ${D}${PLUGINPATH}/controllers/models/
 	find ${D}${PLUGINPATH}/ -name '*.pyo' -exec rm {} \;
 
 	if [ "${MACHINE}" = "ios100" -o "${MACHINE}" = "ios200" -o "${MACHINE}" = "ios300" ]; then

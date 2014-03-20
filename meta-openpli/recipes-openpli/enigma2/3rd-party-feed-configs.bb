@@ -3,7 +3,7 @@ PR = "r1"
 
 require conf/license/openpli-gplv2.inc
 
-FEEDS = "3rd-party 3rd-party-${MACHINE}"
+FEEDS = "3rd-party"
 
 do_compile() {
     mkdir -p ${S}/${sysconfdir}/opkg

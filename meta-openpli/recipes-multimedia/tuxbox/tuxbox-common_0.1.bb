@@ -8,7 +8,9 @@ VERSION := "${PV}"
 PV = "${VERSION}+svn${SRCPV}"
 
 SRC_URI = "${PLISVNURL}/${PLISVNBRANCH}/cdk/cdk;module=root;proto=${PLISVNPROTO} \
-		   file://satellites.xml \
+		    file://satellites.xml \
+			file://terrestrial.xml \
+			file://cables.xml \
 		   "
 
 FILES_${PN} = "/"
@@ -25,6 +27,8 @@ do_install() {
 	install -d ${D}/usr/share/tuxbox
 	install -m 0644 ${S}/root/share/tuxbox/scart.conf ${D}/etc/tuxbox/scart.conf
 	install -m 0644 ${S}/satellites.xml ${D}/etc/tuxbox/satellites.xml
+	install -m 0644 ${S}/terrestrial.xml ${D}/etc/tuxbox/terrestrial.xml
+	install -m 0644 ${S}/cables.xml ${D}/etc/tuxbox/cables.xml
 
 	install -m 0644 ${S}/root/etc/timezone.xml ${D}/etc/tuxbox/timezone.xml
 

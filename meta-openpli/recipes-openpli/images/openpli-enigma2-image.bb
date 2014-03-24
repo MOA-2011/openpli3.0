@@ -259,8 +259,10 @@ ENIGMA2_OPTIONAL = " \
 IMAGE_INSTALL += " \
 	aio-grab \
 	enigma2 \
+	python-textutils \
 	libavahi-client \
 	openssl \
+	kernel-params \
 	settings-autorestore \
 	tuxbox-common \
 	${ENIGMA2_PLUGINS} \

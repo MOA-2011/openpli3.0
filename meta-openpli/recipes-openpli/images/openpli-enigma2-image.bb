@@ -13,8 +13,6 @@ WIFI_DRIVERS = " \
 	kernel-module-r8712u \
 	kernel-module-rt2500usb \
 	kernel-module-rt73usb \
-	kernel-module-rtl8187 \
-	kernel-module-zd1211rw \
 	rtl8192cu \
 	"
 
@@ -88,9 +86,7 @@ DVB_USB_DRIVERS = " \
 	kernel-module-drxk \
 	kernel-module-ds3000 \
 	kernel-module-dsa-core \
-	kernel-module-dvb-dummy-fe \
 	kernel-module-dvb-pll \
-	kernel-module-dvb-ttusb-budget \
 	kernel-module-dvb-usb-af9015 \
 	kernel-module-dvb-usb-af9035 \
 	kernel-module-dvb-usb-anysee \
@@ -150,8 +146,6 @@ DVB_USB_DRIVERS = " \
 	kernel-module-tea5767 \
 	kernel-module-ts2020 \
 	kernel-module-ts-kmp \
-	kernel-module-ttusb-dec \
-	kernel-module-ttusbdecfe \
 	kernel-module-tua6100 \
 	kernel-module-tua9001 \
 	kernel-module-tun \

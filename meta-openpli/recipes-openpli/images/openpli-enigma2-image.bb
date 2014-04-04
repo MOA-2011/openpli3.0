@@ -13,6 +13,7 @@ WIFI_DRIVERS = " \
 	kernel-module-r8712u \
 	kernel-module-rt2500usb \
 	kernel-module-rt73usb \
+	kernel-module-zd1211rw \
 	rtl8192cu \
 	"
 

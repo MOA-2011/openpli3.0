@@ -100,6 +100,9 @@ DVB_USB_DRIVERS = " \
 	kernel-module-dvb-usb-mxl111sf \
 	kernel-module-dvb-usb-rtl28xxu \
 	kernel-module-dvb-usb-v2 \
+	kernel-module-fc0013 \
+	kernel-module-tua9001 \
+	kernel-module-it913x-fe \
 	kernel-module-rt2800usb \
 	kernel-module-rt2x00usb \
 	kernel-module-rtl2830 \
@@ -224,6 +227,7 @@ DEPENDS += " \
 	enigma2 \
 	enigma2-pliplugins \
 	enigma2-plugins \
+	network-usb-drivers-meta \
 	"
 
 ENIGMA2_OPTIONAL = " \

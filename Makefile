@@ -4,7 +4,7 @@
 #MACHINE ?= ${subst /,,${subst build-,,${firstword ${dir ${wildcard build-*/}}}}}
 
 ifeq "$(MACHINE)" ""
-	MACHINE?=tmnanooe
+	MACHINE?=mediabox
 endif
 
 # Adjust according to the number CPU cores to use for parallel build.
@@ -150,11 +150,6 @@ $(CURDIR)/site.conf:
 	@echo 'BB_NUMBER_THREADS = "$(BB_NUMBER_THREADS)"' >> $@
 	@echo 'PARALLEL_MAKE = "$(PARALLEL_MAKE)"' >> $@
 	@echo 'DL_DIR = "$(DL_DIR)"' >> $@
-	@if [ '`cat /etc/issue.net | awk '{print $1}'`' == "Debian" ];then \
-		echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@ \
-	else \
-		echo 'BUILD_OPTIMIZATION = "-march=native -O2 -pipe"' >> $@; \
-	fi
 	@echo 'BUILD_OPTIMIZATION = "-O2 -pipe"' >> $@
 #	@echo 'INHERIT += "rm_work"' >> $@
 

@@ -6,7 +6,7 @@ require conf/license/openpli-gplv2.inc
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RDEPENDS_${PN} = " \
-	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "rtl871x", "kernel-module-r8712u", d)} \
+	${@base_contains("MACHINE_FEATURES", "wifiusblegacy", "kernel-module-r8712u", "", d)} \
 	firmware-rtl8712u \
 	"
 

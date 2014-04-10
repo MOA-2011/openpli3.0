@@ -1,0 +1,49 @@
+require conf/license/openpli-gplv2.inc
+
+DVB_USB_DRIVERS = " \
+				   firmware-dvb-usb-af9015 \
+				   firmware-dvb-fe-af9013 \
+				   kernel-module-dvb-usb-af9015 \
+				   firmware-dvb-usb-af9035-01 \ 
+				   firmware-dvb-usb-af9035-02 \
+				   kernel-module-dvb-usb-af9035 \
+				   firmware-as102-data1-st \
+				   firmware-as102-data2-st \
+				   kernel-module-dib0090 \
+				   kernel-module-dib3000mb \
+				   kernel-module-dib3000mc \
+				   kernel-module-dibx000-common \
+				   kernel-module-mt2060 \
+				   kernel-module-dib7000m \
+				   kernel-module-dib7000p \
+				   kernel-module-dib0070 \
+				   kernel-module-dib8000 \
+				   firmware-xc3028-v27 \
+				   firmware-xc3028l-v36 \
+				   firmware-dvb-usb-wt220u-02 \
+				   firmware-dvb-usb-wt220u-fc03 \
+				   firmware-dvb-usb-wt220u-miglia-01 \
+				   firmware-dvb-usb-wt220u-zl0353-01 \
+				   firmware-dvb-usb-s660 \
+				   firmware-dvb-fe-ds3000 \
+				   kernel-module-tda10071 \
+				   firmware-dvb-fe-tda10071 \
+				   kernel-module-dvb-usb-it913x \
+				   firmware-dvb-usb-it913x \
+				   kernel-module-smsusb \
+				   kernel-module-smsdvb \
+				   firmware-dvb-siano \
+				   firmware-dvb-nova-12mhz-b0 \
+				   firmware-isdbt-nova-12mhz-b0 \
+				   kernel-module-rtl2832 \
+				   kernel-module-dvb-usb-dib0700 \
+				   kernel-module-dvb-usb-dibusb-common \
+				   kernel-module-dvb-usb-dibusb-mc \
+				   firmware-dvb-usb-dib0700-1.20 \
+				   firmware-dvb-usb-dibusb-5.0.0.11 \
+				   firmware-dvb-usb-dibusb-6.0.0.8 \
+				   firmware-dvb-usb-dibusb-an2235-01 \
+				   firmware-xc3028-v27 \
+				   firmware-xc3028l-v36 \
+				   kernel-module-fc0013 \
+				   "

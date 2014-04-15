@@ -7,7 +7,7 @@ KV = "3.9.7"
 KV_EXTRA = ""
 PV = "${KV}+${SRCDATE}"
 
-SRCDATE = "20140409"
+SRCDATE = "20140415"
 
 SRC_URI = "http://en3.homeftp.net/release/images/oedrivers/ci/bcmlinuxdvb_${CHIP}-${KV}-${SRCDATE}.tar.gz"
 
@@ -33,5 +33,5 @@ do_install() {
 		done
 }
 
-SRC_URI[md5sum] = "3057b435aac4e40caeda4fdab114f903"
-SRC_URI[sha256sum] = "2ee4919a431036a9487d3386f17cd50a63e6b33dbcfefd1cf94895787501c768"
+SRC_URI[md5sum] = "70181069df4ed9f8ff6352f1bf94446f"
+SRC_URI[sha256sum] = "e70af6eb4ae13a7a8bf4117971a0bae1a9dba723fc57a2b1c28e7bf1ee6a1237"

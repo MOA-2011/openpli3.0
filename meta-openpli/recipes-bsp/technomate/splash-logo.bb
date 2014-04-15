@@ -30,8 +30,8 @@ do_install() {
 		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/
 		install -m 0644 ${WORKDIR}/factory.bmp ${DEPLOY_DIR_IMAGE}/
 	elif [ "${BRAND_NAME}" = "Edition" ];then
-		install -m 0644 ${WORKDIR}/optimuss.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
-		install -m 0644 ${WORKDIR}/optimuss.splash.bmp ${DEPLOY_DIR_IMAGE}/
+		install -m 0644 ${WORKDIR}/optimuss.factory.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
+		install -m 0644 ${WORKDIR}/optimuss.factory.bmp ${DEPLOY_DIR_IMAGE}/
 		install -m 0644 ${WORKDIR}/optimuss.factory.bmp ${DEPLOY_DIR_IMAGE}/
 	elif [ "${BRAND_NAME}" = "Mediabox" ];then
 		install -m 0644 ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp

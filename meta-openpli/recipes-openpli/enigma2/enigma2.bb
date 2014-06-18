@@ -278,7 +278,7 @@ do_install_append() {
 	elif [ "${BRAND_NAME}" = "Iqon" ]; then
 		install -m 0755 ${WORKDIR}/ios.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
 		install -m 0755 ${WORKDIR}/ios.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
-	elif [ "${BRAND_NAME}" = "Edition" ]; then
+	elif [ "${BRAND_NAME}" = "Edision" ]; then
 		install -m 0755 ${WORKDIR}/optimuss.input_rcold-configured.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold-configured.png
 		install -m 0755 ${WORKDIR}/optimuss.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png
 	elif [ "${MACHINE}" = "tmtwinoe" ]; then

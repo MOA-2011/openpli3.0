@@ -192,7 +192,6 @@
 		<!-- [iq -->
 		<key id="KEY_MEDIA" mapto="showMediaPlayer" flags="mr" />
 		<key id="KEY_F1" mapto="showNetworkSetup" flags="mr" />
-		<key id="KEY_F5" mapto="showRFmod" flags="b" /> 
 		<key id="KEY_F5" mapto="toggleAspectRatio" flags="l" />
 		<!-- iq] -->
 	</map>

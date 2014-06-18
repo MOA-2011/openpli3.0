@@ -8,8 +8,8 @@ DVB_USB_DRIVERS = " \
 				   firmware-dvb-usb-af9035-02 \
 				   kernel-module-dvb-usb-af9035 \
 				   kernel-module-af9033 \
-                                   kernel-module-tua9001 \
-                                   firmware-as102-data1-st \
+                   kernel-module-tua9001 \
+                   firmware-as102-data1-st \
 				   firmware-as102-data2-st \
 				   kernel-module-dib0090 \
 				   kernel-module-dib3000mb \
@@ -31,7 +31,7 @@ DVB_USB_DRIVERS = " \
 				   kernel-module-tda10071 \
 				   firmware-dvb-fe-tda10071 \
 				   kernel-module-dvb-usb-it913x \
-                                   kernel-module-it913x-fe \
+                   kernel-module-it913x-fe \
 				   firmware-dvb-usb-it913x \
 				   kernel-module-smsusb \
 				   kernel-module-smsdvb \
@@ -39,7 +39,7 @@ DVB_USB_DRIVERS = " \
 				   firmware-dvb-nova-12mhz-b0 \
 				   firmware-isdbt-nova-12mhz-b0 \
 				   kernel-module-rtl2832 \
-                                   kernel-module-dvb-usb-rtl28xxu \
+                   kernel-module-dvb-usb-rtl28xxu \
 				   kernel-module-dvb-usb-dib0700 \
 				   kernel-module-dvb-usb-dibusb-common \
 				   kernel-module-dvb-usb-dibusb-mc \

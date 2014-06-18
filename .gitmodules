@@ -12,5 +12,4 @@
 	ignore = dirty
 [submodule "meta-openpli/recipes-openpli/e2openplugins"]
 	path = meta-openpli/recipes-openpli/e2openplugins
-	url = git://github.com/E2OpenPlugins/e2openplugins.git
-	ignore = dirty
+	url = git://github.com/MOA-2011/e2openplugins

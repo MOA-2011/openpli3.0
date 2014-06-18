@@ -1,0 +1,13 @@
+Package: enigma2-plugin-extensions-hbbtv
+Version: experimental-git725+d1c6ff8-r7
+Description: enigma2-oe-plugins version experimental-git1+d1c6ff8e7db965cf31be447ce8febb28ff238fa2-r7
+ extensions-hbbtv
+Section: base
+Priority: optional
+Maintainer: OpenPLi team <info@openpli.org>
+License: Proprietary
+Architecture: mips32el
+OE: enigma2-oe-plugins
+Homepage: unknown
+Depends: enigma2
+Source: git://github.com/oe-alliance/oe-alliance-plugins.git;protocol=git file://configure.ac.patch;striplevel=1 file://makefile.am.patch;striplevel=1 file://control

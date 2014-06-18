@@ -167,7 +167,6 @@ SRC_URI = "${ENIGMA2_URI};protocol=git;branch=${ENIGMA2_BRANCH} \
 			file://def_ins \
 			file://menu-${MACHINE}.xml \
 			file://e2settings \
-			file://satellites.xml \
 			file://factory.var \
 		   "
 
@@ -271,7 +270,6 @@ do_install_append() {
 
 	mv ${WORKDIR}/def_inst ${D}/etc/.def_inst
 	cp ${WORKDIR}/e2settings ${D}/etc/.e2settings.tar
-	cp ${WORKDIR}/satellites.xml ${D}/etc/tuxbox
 
 	if [ "${BRAND_NAME}" = "Mediabox" ]; then
         install -m 0755 ${WORKDIR}/mediabox.input_rcold.png ${D}/usr/share/enigma2/skin_default/icons/input_rcold.png

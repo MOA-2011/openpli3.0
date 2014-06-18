@@ -58,6 +58,7 @@ IMAGE_CMD_ubi_append = " \
 		cp ${DEPLOY_DIR_IPK}/${MACHINE}/enigma2_2.7* ${DEPLOY_DIR_IMAGE}; \
 		gzip -f -c ${DEPLOY_DIR_IMAGE}/vmlinux-3.9.7*.bin > ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin.gz; \
 		cp ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin.gz ${DEPLOY_DIR_IMAGE}/oe_kernel.bin; \
+		tar cf ${DEPLOY_DIR_IMAGE}/test_${MACHINE}_${DATE} oe_kernel.bin enigma2_2.7* bcmlinuxdvb.ko; \
         "
 
 TARGET_FPU = "hard"

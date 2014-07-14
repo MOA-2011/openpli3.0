@@ -10,3 +10,6 @@
 	path = bitbake
 	url = git://git.openembedded.org/bitbake
 	ignore = dirty
+[submodule "meta-openpli/recipes-openpli/e2openplugins"]
+	path = meta-openpli/recipes-openpli/e2openplugins
+	url = git://github.com/MOA-2011/e2openplugins.git

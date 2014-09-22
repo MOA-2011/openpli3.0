@@ -9,7 +9,7 @@ PV = "${KV}+${SRCDATE}"
 
 SRCDATE = "20140605"
 
-SRC_URI = "http://en3.homeftp.net/release/images/oedrivers/bcmlinuxdvb_${CHIP}-${KV}-${SRCDATE}.tar.gz"
+SRC_URI = "http://en3homeftp.net/release/images/oedrivers/bcmlinuxdvb_${CHIP}-${KV}-${SRCDATE}.tar.gz"
 
 S = "${WORKDIR}"
 

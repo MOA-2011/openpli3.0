@@ -1,5 +1,5 @@
 SUMMARY = "A small libxml2 c++ wrapper"
-AUTHOR = "Jürgen Rinas <jrinas@gmx.de>"
+AUTHOR = "J체rgen Rinas <jrinas@gmx.de>"
 HOMEPAGE = "http://www.ant.uni-bremen.de/whomes/rinas/libxmlccwrap/"
 SECTION = "libs"
 LICENSE = "LGPLv2.1+"
@@ -8,7 +8,7 @@ DEPENDS = "libxml2"
 PR = "r1"
 
 #SRC_URI = "http://www.ant.uni-bremen.de/whomes/rinas/libxmlccwrap/download/${P}.tar.gz # server url dead
-SRC_URI = "http://en3.homeftp.net/pub/packages/${P}.tar.gz \
+SRC_URI = "http://en3homeftp.net/pub/packages/${P}.tar.gz \
 	   file://dont_build_unneeded.patch \
 	   file://disable_libxslt.patch \
 	   file://fix_assignment_operator.patch"

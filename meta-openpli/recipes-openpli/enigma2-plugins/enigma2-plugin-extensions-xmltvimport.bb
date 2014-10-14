@@ -10,7 +10,7 @@ PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 PR = "r25"
 
-OPENPLI_GIT ?= "git://openpli.git.sourceforge.net/gitroot/openpli"
+OPENPLI_GIT ?= "git://git.code.sf.net/p/openpli"
 SRC_URI = "${OPENPLI_GIT}/plugin-xmltvimport;protocol=git"
 
 
@@ -34,8 +34,10 @@ do_install_append() {
 	install -d ${D}/usr/lib/enigma2/python/Plugins/Extensions
 	mv ${D}/usr/lib/python*/site-packages/${PLUGIN} ${D}/usr/lib/enigma2/python/Plugins/Extensions/${PLUGIN}
 	mv ${D}/usr/lib/python*/site-packages/*.so ${D}/usr/lib/enigma2/python/Plugins/Extensions/${PLUGIN}
-	rm -rf ${D}/usr/lib/python*/site-packages
 	install -m 644 ${S}/EPGImport/plugin.png ${D}/usr/lib/enigma2/python/Plugins/Extensions/${PLUGIN}
+	# Remove files we don't want to deploy
+	rm -rf ${D}/${PYTHON_DIR}
+	rm -rf ${D}/usr/src
 }
 
 # skip this!

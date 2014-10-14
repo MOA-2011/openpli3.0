@@ -1,5 +1,5 @@
 SUMMARY = "A small libxml2 c++ wrapper"
-AUTHOR = "J체rgen Rinas <jrinas@gmx.de>"
+AUTHOR = "Jürgen Rinas <jrinas@gmx.de>"
 HOMEPAGE = "http://www.ant.uni-bremen.de/whomes/rinas/libxmlccwrap/"
 SECTION = "libs"
 LICENSE = "LGPLv2.1+"

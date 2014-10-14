@@ -15,8 +15,8 @@ SRCREV = "${AUTOREV}"
 
 #SRC_URI="git://openpli.git.sourceforge.net/gitroot/openpli/plugins-enigma2;protocol=git"
 SRC_URI="git://github.com/oe-alliance/oe-alliance-plugins.git;protocol=git \
-		file://configure.ac.patch;striplevel=1 \
-		file://makefile.am.patch;striplevel=1 \
+		file://configure.ac \
+		file://Makefile.am \
 		file://control \
 "
 
@@ -32,6 +32,8 @@ S = "${WORKDIR}/git"
 
 do_configure_prepend() {
 		install -d ${S}/HbbTV/CONTROL
+        cp -rf ${WORKDIR}/configure.ac ${S}/
+        cp -rf ${WORKDIR}/Makefile.am ${S}/
 		cp -rf ${WORKDIR}/control ${S}/HbbTV/CONTROL
 }
 

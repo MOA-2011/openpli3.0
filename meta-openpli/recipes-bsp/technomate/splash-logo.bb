@@ -12,6 +12,9 @@ S = "${WORKDIR}"
 
 SRC_URI = "file://factory.bmp \
 		   file://splash.bmp \
+		   file://splash1.bmp \
+		   file://splash2.bmp \
+		   file://splash3.bmp \
 		   file://optimuss.splash.bmp \
 		   file://optimuss.factory.bmp \
 		   file://mediabox.splash.bmp \
@@ -25,14 +28,23 @@ do_install() {
 		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/
 		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/factory.bmp
+        ${@base_contains("CHIP","7356","install -m 0644 ${WORKDIR}/splash1.bmp ${DEPLOY_DIR_IMAGE}", "", d)}
+        ${@base_contains("CHIP","7356","install -m 0644 ${WORKDIR}/splash2.bmp ${DEPLOY_DIR_IMAGE}", "", d)}
+        ${@base_contains("CHIP","7356","install -m 0644 ${WORKDIR}/splash3.bmp ${DEPLOY_DIR_IMAGE}", "", d)}
 	elif [ "${BRAND_NAME}" = "Iqon" ];then
 		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 		install -m 0644 ${WORKDIR}/splash.bmp ${DEPLOY_DIR_IMAGE}/
+        ${@base_contains("CHIP","7356","install -m 0644 ${WORKDIR}/splash1.bmp ${DEPLOY_DIR_IMAGE}", "", d)}
+        ${@base_contains("CHIP","7356","install -m 0644 ${WORKDIR}/splash2.bmp ${DEPLOY_DIR_IMAGE}", "", d)}
+        ${@base_contains("CHIP","7356","install -m 0644 ${WORKDIR}/splash3.bmp ${DEPLOY_DIR_IMAGE}", "", d)}
 		install -m 0644 ${WORKDIR}/factory.bmp ${DEPLOY_DIR_IMAGE}/
 	elif [ "${BRAND_NAME}" = "Edition" ];then
 		install -m 0644 ${WORKDIR}/optimuss.factory.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 		install -m 0644 ${WORKDIR}/optimuss.factory.bmp ${DEPLOY_DIR_IMAGE}/
 		install -m 0644 ${WORKDIR}/optimuss.factory.bmp ${DEPLOY_DIR_IMAGE}/
+        ${@base_contains("CHIP","7356","install -m 0644 ${WORKDIR}/splash1.bmp ${DEPLOY_DIR_IMAGE}", "", d)}
+        ${@base_contains("CHIP","7356","install -m 0644 ${WORKDIR}/splash2.bmp ${DEPLOY_DIR_IMAGE}", "", d)}
+        ${@base_contains("CHIP","7356","install -m 0644 ${WORKDIR}/splash3.bmp ${DEPLOY_DIR_IMAGE}", "", d)}
 	elif [ "${BRAND_NAME}" = "Mediabox" ];then
 		install -m 0644 ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp
 		install -m 0644 ${WORKDIR}/mediabox.splash.bmp ${DEPLOY_DIR_IMAGE}/${MACHINE}.bmp

@@ -7,7 +7,7 @@ KV = "3.9.7"
 KV_EXTRA = ""
 PV = "${KV}+${SRCDATE}"
 
-SRCDATE = "20140605"
+SRCDATE = "20141010"
 
 SRC_URI = "http://en3homeftp.net/release/images/oedrivers/bcmlinuxdvb_${CHIP}-${KV}-${SRCDATE}.tar.gz"
 
@@ -22,11 +22,13 @@ do_compile() {
 
 FILES_${PN} += "${sysconfdir}/modules-load.d/_technomate.conf"
 
+do_configure_prepend() {
+		if [ -d ${DEPLOY_DIR_IMAGE} ]; then
+		   mkdir -p ${DEPLOY_DIR_IMAGE}
+		fi
+}
 do_install() {
 		install -d ${D}/lib/modules/${KV}/extra
-		if [ ! d ${DEPLOY_DIR_IMAGE} ]; then
-		   install -d ${DEPLOY_DIR_IMAGE}
-		fi
 
 		for f in ${S}/lib/modules/${KV}/extra/*.ko; do
 			install -m 0644 $f ${D}/lib/modules/${KV}/extra;
@@ -39,5 +41,5 @@ do_install() {
 		done
 }
 
-SRC_URI[md5sum] = "cb4c8a53a8a97e108053a88f1f0dc520"
-SRC_URI[sha256sum] = "c82d5c32e28ee7cda2636583a50c103018c23959706b100f83ac37e07faa11b0"
+SRC_URI[md5sum] = "1de92c6a395572b30e3b17ef65589a32"
+SRC_URI[sha256sum] = "8784a2e0bea0ff53f7a02feb748619285d6297d6351cd398447c3fb1be99a59d"

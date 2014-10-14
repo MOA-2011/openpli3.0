@@ -49,6 +49,9 @@ IMAGE_CMD_ubi_append = " \
         mkdir -p ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/; \
         cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.ubi ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/oe_rootfs.bin; \
 		cp ${DEPLOY_DIR_IMAGE}/cfe-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/cfe.bin; \
+        ${@base_contains("CHIP","7356","cp ${DEPLOY_DIR_IMAGE}/splash1.bmp ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/;","",d)} \
+        ${@base_contains("CHIP","7356","cp ${DEPLOY_DIR_IMAGE}/splash2.bmp ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/;","",d)} \
+        ${@base_contains("CHIP","7356","cp ${DEPLOY_DIR_IMAGE}/splash3.bmp ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/;","",d)} \
 		cp ${DEPLOY_DIR_IMAGE}/${MACHINE}.splash.bmp ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/splash.bmp; \
         gzip -f -9c ${DEPLOY_DIR_IMAGE}/vmlinux-${MACHINE}.bin > ${DEPLOY_DIR_IMAGE}/update/${MACHINE}/cfe/oe_kernel.bin; \
         cd ${DEPLOY_DIR_IMAGE}; \

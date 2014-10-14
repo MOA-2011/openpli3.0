@@ -1,17 +1,16 @@
 DESCRIPTION = "Linux kernel for ${MACHINE}"
 LICENSE = "GPL"
 SECTION = "kernel"
-KV = "3.9.7-r1"
+KV = "3.9.7-r2"
 
-DATE = "20140404"
+DATE = "20140923"
 
 MACHINE_KERNEL_PR_append = ".5"
 
-SRC_URI[md5sum] = "74d909a2081479136fa453b743325138"
-SRC_URI[sha256sum] = "de0aaf466ecf8b47653a859f66ff59da49e7a16aa26c9987d0c089255675de04"
+SRC_URI[md5sum] = "58cfb8c7b154193cbfd6e041ed47a49d"
+SRC_URI[sha256sum] = "7c304bd8a325385d80ee848558b76c3ae98a7cdf2cc90fa3083964e698aca765"
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/linux-${KV}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
-
 SRC_URI = "http://en3homeftp.net/pub/src/linux-${KV}-${DATE}.tar.gz \
 		file://${MACHINE}_defconfig \
 		"

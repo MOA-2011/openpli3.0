@@ -1,5 +1,6 @@
 DEPENDS += " \
 		enigma2-oe-plugins \
+		3rdparty-plugins \
 "
 ENIGMA2_PLUGINS += " enigma2-plugin-extensions-autobouquets \
 				enigma2-plugin-systemplugins-crossepg \
@@ -12,6 +13,7 @@ ENIGMA2_PLUGINS += " enigma2-plugin-extensions-autobouquets \
 				enigma2-plugin-systemplugins-fastscan \
 				enigma2-plugin-systemplugins-hotplug \
 				enigma2-plugin-systemplugins-networkbrowser \
+                enigma2-plugin-systemplugins-networkwizard \
 				enigma2-plugin-systemplugins-positionersetup \
 				enigma2-plugin-systemplugins-satfinder \
 				enigma2-plugin-systemplugins-skinselector \
